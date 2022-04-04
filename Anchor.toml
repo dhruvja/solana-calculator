@@ -1,0 +1,14 @@
+[features]
+seeds = false
+[programs.localnet]
+mycalculator = "Gicxx7yn5wd1WzUCJt5Kowp3DaGHKu8Y6bBZYcRWstVR"
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "localnet"
+wallet = "/Users/dhruvjain/.config/solana/id.json"
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.js"
