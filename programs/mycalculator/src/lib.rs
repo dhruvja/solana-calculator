@@ -1,6 +1,4 @@
 use anchor_lang::prelude::*;
-use anchor_lang::solana_program::entrypoint::ProgramResult;
-
 
 declare_id!("Gicxx7yn5wd1WzUCJt5Kowp3DaGHKu8Y6bBZYcRWstVR");
 
@@ -8,31 +6,32 @@ declare_id!("Gicxx7yn5wd1WzUCJt5Kowp3DaGHKu8Y6bBZYcRWstVR");
 pub mod mycalculator {
     use super::*;
 
-    pub fn initialize(ctx: Context<Initialize>, init_message: String) -> ProgramResult {
+    pub fn initialize(ctx: Context<Initialize>, pubkey: Pubkey, init_message: String) -> Result<()> {
         let calculator = &mut ctx.accounts.calculator;
         calculator.greeting = init_message;
+        msg!("{}", pubkey);
         Ok(())
     }
 
-    pub fn add(ctx: Context<Addition>, num1: i64, num2: i64) -> ProgramResult {
+    pub fn add(ctx: Context<Addition>, num1: i64, num2: i64) -> Result<()> {
         let calculator = &mut ctx.accounts.calculator;
         calculator.result = num1 + num2;
         Ok(())
     }
     
-    pub fn subtract(ctx: Context<Subtraction>, num1: i64, num2: i64) -> ProgramResult{
+    pub fn subtract(ctx: Context<Subtraction>, num1: i64, num2: i64) -> Result<()>{
         let calculator = &mut ctx.accounts.calculator;
         calculator.result = num1 - num2;
         Ok(())
     }
 
-    pub fn multiply(ctx: Context<Multiplication>, num1: i64, num2: i64) -> ProgramResult{
+    pub fn multiply(ctx: Context<Multiplication>, num1: i64, num2: i64) -> Result<()>{
         let calculator = &mut ctx.accounts.calculator;
         calculator.result = num1 * num2;
         Ok(())
     }
 
-    pub fn divide(ctx: Context<Division>, num1: i64, num2: i64) -> ProgramResult {
+    pub fn divide(ctx: Context<Division>, num1: i64, num2: i64) -> Result<()> {
         let calculator = &mut ctx.accounts.calculator;
         calculator.result = num1 / num2;
         calculator.remainder = num1 % num2;

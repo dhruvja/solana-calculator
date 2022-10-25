@@ -4,6 +4,7 @@
 const assert = require("assert");
 
 const anchor = require("@project-serum/anchor");
+const { isDotDotDotToken } = require("typescript");
 const { SystemProgram } = anchor.web3;
 
 describe("mycalculator", () => {
@@ -19,7 +20,8 @@ describe("mycalculator", () => {
 
   it("Creates a calculator", async () => {
     // Add your test here.
-    await program.rpc.initialize("Welcome to Solana", {
+
+    await program.rpc.initialize(calculator.publicKey,"Welcome to Solana", {
       accounts: {
         calculator: calculator.publicKey,
         user: provider.wallet.publicKey,

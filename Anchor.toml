@@ -3,6 +3,9 @@ seeds = false
 [programs.localnet]
 mycalculator = "Gicxx7yn5wd1WzUCJt5Kowp3DaGHKu8Y6bBZYcRWstVR"
 
+[programs.devnet]
+mycalculator = "Gicxx7yn5wd1WzUCJt5Kowp3DaGHKu8Y6bBZYcRWstVR"
+
 [registry]
 url = "https://anchor.projectserum.com"
 
